@@ -41,5 +41,7 @@ export const typeDefs = gql`
     createRelease(versionName: String!, additionalRemarks: String): Release!
     updateSteps(id: ID!, steps: StepsInput!): Release!
     updateRemarks(id: ID!, additionalRemarks: String): Release!
+    deleteRelease(id: ID!): Release!
   }
 `;
+

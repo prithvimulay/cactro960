@@ -54,6 +54,11 @@ export const resolvers = {
         where: { id },
         data: { additionalRemarks }
       });
+    },
+    deleteRelease: async (_: any, { id }: { id: string }) => {
+      return await prisma.release.delete({
+        where: { id }
+      });
     }
   },
 

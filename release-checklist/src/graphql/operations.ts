@@ -34,6 +34,10 @@ export interface UpdateStepsData {
   updateSteps: Release;
 }
 
+export interface DeleteReleaseData {
+  deleteRelease: Release;
+}
+
 // Query to get the list of releases
 export const GET_RELEASES = gql`
   query GetReleases {
@@ -95,6 +99,14 @@ export const UPDATE_STEPS = gql`
         f
         g
       }
+    }
+  }
+`;
+
+export const DELETE_RELEASE = gql`
+  mutation DeleteRelease($id: ID!) {
+    deleteRelease(id: $id) {
+      id
     }
   }
 `;
