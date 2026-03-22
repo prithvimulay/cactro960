@@ -13,5 +13,11 @@ const server = new ApolloServer({
 // Create the Next.js handler
 const handler = startServerAndCreateNextHandler<NextRequest>(server);
 
-// Export GET and POST handlers so Apollo Server can process requests
-export { handler as GET, handler as POST };
+// Explicitly wrap the handlers to satisfy Next.js App Router type constraints
+export async function GET(request: NextRequest) {
+  return handler(request);
+}
+
+export async function POST(request: NextRequest) {
+  return handler(request);
+}
